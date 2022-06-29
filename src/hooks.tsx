@@ -13,7 +13,7 @@ export const useAnimatedScale = () => {
                 setAnimated(true)
                 const interval = setInterval(() => {
                     setScale((prev : number) => {
-                        if (scale > 1) {
+                        if (prev > 1) {
                             setAnimated(false)
                             clearInterval(interval)
                             return 0 
@@ -80,7 +80,7 @@ export const useStyle  = (w : number, h : number, scale : number) => {
 
         lineStyle() : CSSProperties {
             const left = `${-size * 0.5 * sf}px`
-            const top = `${-lineSize / 2}px`
+            const top = `${-lineSize / 2 + 2 * size}px`
             const width = `${size * sf}px`
             const height = `${lineSize}px`
             const background = `indigo`
